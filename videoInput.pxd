@@ -85,129 +85,127 @@ cdef extern from 'videoInput.h':
     
     cdef cppclass videoDevice:
         videoDevice() except +
-        void setSize(int w, int h);
-        void NukeDownstream(IBaseFilter *pBF);
-        void destroyGraph();
+        void setSize(int w, int h)
+        void NukeDownstream(IBaseFilter *pBF)
+        void destroyGraph()
 
-        int videoSize;
-        int width;
-        int height;
-        int tryWidth;
-        int tryHeight;
+        int videoSize
+        int width
+        int height
+        int tryWidth
+        int tryHeight
         
-        ICaptureGraphBuilder2 *pCaptureGraph;    
-        IGraphBuilder *pGraph;                   
-        IMediaControl *pControl;                
-        IBaseFilter *pVideoInputFilter;         
-        IBaseFilter *pGrabberF;
-        IBaseFilter * pDestFilter;
-        IAMStreamConfig *streamConf;
-        ISampleGrabber * pGrabber;              
-        AM_MEDIA_TYPE * pAmMediaType;
+        ICaptureGraphBuilder2 *pCaptureGraph
+        IGraphBuilder *pGraph        
+        IMediaControl *pControl                
+        IBaseFilter *pVideoInputFilter         
+        IBaseFilter *pGrabberF
+        IBaseFilter * pDestFilter
+        IAMStreamConfig *streamConf
+        ISampleGrabber * pGrabber              
+        AM_MEDIA_TYPE * pAmMediaType
 
-        IMediaEventEx * pMediaEvent;
+        IMediaEventEx * pMediaEvent
         
-        GUID videoType;
-        long formatType;
+        GUID videoType
+        long formatType
         
-        SampleGrabberCallback * sgCallback;
+        SampleGrabberCallback * sgCallback
 
-        bint tryDiffSize;
-        bint useCrossbar;
-        bint readyToCapture;
-        bint sizeSet;
-        bint setupStarted;
-        bint specificFormat;
-        bint autoReconnect;
-        int  nFramesForReconnect;
-        unsigned long nFramesRunning;
-        int  connection;
-        int     storeConn;
-        int  myID;
-        long requestedFrameTime; 
+        bint tryDiffSize
+        bint useCrossbar
+        bint readyToCapture
+        bint sizeSet
+        bint setupStarted
+        bint specificFormat
+        bint autoReconnect
+        int  nFramesForReconnect
+        unsigned long nFramesRunning
+        int  connection
+        int     storeConn
+        int  myID
+        long requestedFrameTime 
 
-        char     nDeviceName[255];
-        WCHAR     wDeviceName[255];
+        char     nDeviceName[255]
+        WCHAR     wDeviceName[255]
         
-        unsigned char * pixels;
-        char * pBuffer;
+        unsigned char * pixels
+        char * pBuffer
         
     cdef cppclass videoInput:
         videoInput() except +
         
         @staticmethod
-        void setVerbose(bint _verbose);
+        void setVerbose(bint _verbose)
         @staticmethod
-        void setComMultiThreaded(bint bMulti);
-
+        void setComMultiThreaded(bint bMulti)
         @staticmethod
-        int listDevices(bint silent = false);
+        int listDevices(bint silent = false)
         @staticmethod
-        vector[string] getDeviceList(); 
-
+        vector[string] getDeviceList() 
         @staticmethod
-        char * getDeviceName(int deviceID);
+        char * getDeviceName(int deviceID)
         @staticmethod
-        int getDeviceIDFromName(char * name);
+        int getDeviceIDFromName(char * name)
         
-        void setUseCallback(bint);
+        void setUseCallback(bint)
         
-        void setIdealFramerate(int deviceID, int idealFramerate);
+        void setIdealFramerate(int deviceID, int idealFramerate)
 
-        void setAutoReconnectOnFreeze(int deviceNumber, bint doReconnect, int numMissedFramesBeforeReconnect);
+        void setAutoReconnectOnFreeze(int deviceNumber, bint doReconnect, int numMissedFramesBeforeReconnect)
 
-        bint setupDevice(int deviceID);
-        bint setupDevice(int deviceID, int w, int h);
+        bint setupDevice(int deviceID)
+        bint setupDevice(int deviceID, int w, int h)
 
-        bint setupDevice(int deviceID, int connection);
-        bint setupDevice(int deviceID, int w, int h, int connection);
+        bint setupDevice(int deviceID, int connection)
+        bint setupDevice(int deviceID, int w, int h, int connection)
 
-        bint setFormat(int deviceNumber, int format);
-        void setRequestedMediaSubType(int mediatype);
+        bint setFormat(int deviceNumber, int format)
+        void setRequestedMediaSubType(int mediatype)
 
-        bint isFrameNew(int deviceID);
+        bint isFrameNew(int deviceID)
 
-        bint isDeviceSetup(int deviceID);
+        bint isDeviceSetup(int deviceID)
 
-        unsigned char * getPixels(int deviceID, bint flipRedAndBlue = true, bint flipImage = false);
+        unsigned char * getPixels(int deviceID, bint flipRedAndBlue = true, bint flipImage = false)
 
-        bint getPixels(int id, unsigned char * pixels, bint flipRedAndBlue = true, bint flipImage = false);
+        bint getPixels(int id, unsigned char * pixels, bint flipRedAndBlue = true, bint flipImage = false)
 
-        void showSettingsWindow(int deviceID);
+        void showSettingsWindow(int deviceID)
 
-        bint setVideoSettingFilter(int deviceID, long Property, long lValue, long Flags = NULL, bint useDefaultValue = false);
-        bint setVideoSettingFilterPct(int deviceID, long Property, float pctValue, long Flags = NULL);
-        bint getVideoSettingFilter(int deviceID, long Property, long &min, long &max, long &SteppingDelta, long &currentValue, long &flags, long &defaultValue);
+        bint setVideoSettingFilter(int deviceID, long Property, long lValue, long Flags = NULL, bint useDefaultValue = false)
+        bint setVideoSettingFilterPct(int deviceID, long Property, float pctValue, long Flags = NULL)
+        bint getVideoSettingFilter(int deviceID, long Property, long &min, long &max, long &SteppingDelta, long &currentValue, long &flags, long &defaultValue)
 
-        bint setVideoSettingCamera(int deviceID, long Property, long lValue, long Flags = NULL, bint useDefaultValue = false);
-        bint setVideoSettingCameraPct(int deviceID, long Property, float pctValue, long Flags = NULL);
-        bint getVideoSettingCamera(int deviceID, long Property, long &min, long &max, long &SteppingDelta, long &currentValue, long &flags, long &defaultValue);
+        bint setVideoSettingCamera(int deviceID, long Property, long lValue, long Flags = NULL, bint useDefaultValue = false)
+        bint setVideoSettingCameraPct(int deviceID, long Property, float pctValue, long Flags = NULL)
+        bint getVideoSettingCamera(int deviceID, long Property, long &min, long &max, long &SteppingDelta, long &currentValue, long &flags, long &defaultValue)
 
-        int  getWidth(int deviceID);
-        int  getHeight(int deviceID);
-        int  getSize(int deviceID);
+        int  getWidth(int deviceID)
+        int  getHeight(int deviceID)
+        int  getSize(int deviceID)
 
-        void stopDevice(int deviceID);
+        void stopDevice(int deviceID)
 
-        bint restartDevice(int deviceID);
+        bint restartDevice(int deviceID)
 
-        int  devicesFound;
+        int  devicesFound
 
-        long propBrightness;
-        long propContrast;
-        long propHue;
-        long propSaturation;
-        long propSharpness;
-        long propGamma;
-        long propColorEnable;
-        long propWhiteBalance;
-        long propBacklightCompensation;
-        long propGain;
+        long propBrightness
+        long propContrast
+        long propHue
+        long propSaturation
+        long propSharpness
+        long propGamma
+        long propColorEnable
+        long propWhiteBalance
+        long propBacklightCompensation
+        long propGain
 
-        long propPan;
-        long propTilt;
-        long propRoll;
-        long propZoom;
-        long propExposure;
-        long propIris;
-        long propFocus;
+        long propPan
+        long propTilt
+        long propRoll
+        long propZoom
+        long propExposure
+        long propIris
+        long propFocus

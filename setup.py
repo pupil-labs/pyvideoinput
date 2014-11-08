@@ -4,6 +4,10 @@ from distutils.extension import Extension
 from Cython.Build import cythonize
 
 extensions = [
+    Extension(  name="videoInput",
+                sources=['videoInput/videoInputSrcAndDemos/libs/videoInput/videoInput.cpp'],
+                language="c++",
+                include_dirs = ['videoInput/videoInputSrcAndDemos/libs/videoInput/']),
     Extension(  name="pyVideoInput",
                 sources=['pyVideoInput.pyx'],
                 language="c++",
