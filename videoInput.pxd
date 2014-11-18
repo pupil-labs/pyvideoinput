@@ -58,7 +58,7 @@ DEF VI_MEDIASUBTYPE_MJPG    =18
     
 from libcpp.vector cimport vector
 from libcpp.string cimport string
-cdef extern from 'videoInput.h':
+cdef extern from '<videoInput/videoInput.h>':
     ctypedef struct ICaptureGraphBuilder2:
         pass
     ctypedef struct IGraphBuilder: 
@@ -209,3 +209,5 @@ cdef extern from 'videoInput.h':
         long propExposure
         long propIris
         long propFocus
+        
+cdef videoInput *vidIn = new videoInput()

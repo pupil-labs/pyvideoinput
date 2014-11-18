@@ -3,16 +3,20 @@ from distutils.extension import Extension
 
 from Cython.Build import cythonize
 
-extensions = [
-    Extension(  name="videoInput",
-                sources=['videoInput/videoInputSrcAndDemos/libs/videoInput/videoInput.cpp'],
-                language="c++",
-                include_dirs = ['videoInput/videoInputSrcAndDemos/libs/videoInput/']),
-    Extension(  name="pyVideoInput",
+
+extensions = [Extension(  name="pyVideoInput",
                 sources=['pyVideoInput.pyx'],
                 language="c++",
-                include_dirs = ['videoInput/videoInputSrcAndDemos/libs/videoInput/'])
+                extra_objects= ['videoInput.lib', 'videoInputD.lib'],
+                include_dirs= ['videoInput/videoInputSrcAndDemos/libs/'],
+                library_dirs= ['videoInput/compiledLib/vs2012/'])
 ]
+'''Extension(  name="pyVideoInput",
+                sources=['pyVideoInput.pyx', 'videoInput/videoInputSrcAndDemos/libs/videoInput/videoInput.cpp'],
+                language="c++",
+                include_dirs= ['videoInput/videoInputSrcAndDemos/libs/'],
+                library_dirs= ['videoInput/videoInputSrcAndDemos/libs/DShow/lib/', 'videoInput/videoInputSrcAndDemos/libs/extra/', 'videoInput/videoInputSrcAndDemos/libs/glfw/'],
+                libraries= ['glfw', 'ddraw', 'strmbasd', 'strmbase', 'strmiids', 'uuid'])   '''
 
 setup(  name="pyVideoInput",
         version="0.0.1",
