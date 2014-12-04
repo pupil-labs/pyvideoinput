@@ -4,7 +4,7 @@ cdef extern from 'wchar.h':
 
 cdef extern from 'Windows.h':
     ctypedef struct GUID:
-        pass
+        pass    
     
 DEF VI_VERSION  =   0.200
 DEF VI_MAX_CAMERAS = 20
@@ -55,9 +55,9 @@ DEF VI_MEDIASUBTYPE_Y800    =15
 DEF VI_MEDIASUBTYPE_Y8      =16
 DEF VI_MEDIASUBTYPE_GREY    =17
 DEF VI_MEDIASUBTYPE_MJPG    =18
-    
+
 from libcpp.vector cimport vector
-from libcpp.string cimport string
+#from libcpp.string cimport string
 cdef extern from '<videoInput/videoInput.h>':
     ctypedef struct ICaptureGraphBuilder2:
         pass
@@ -142,7 +142,7 @@ cdef extern from '<videoInput/videoInput.h>':
         @staticmethod
         int listDevices(bint silent = false)
         @staticmethod
-        vector[string] getDeviceList() 
+        vector[WCHAR] getDeviceList() 
         @staticmethod
         char * getDeviceName(int deviceID)
         @staticmethod
@@ -210,4 +210,3 @@ cdef extern from '<videoInput/videoInput.h>':
         long propIris
         long propFocus
         
-cdef videoInput *vidIn = new videoInput()
