@@ -234,13 +234,11 @@ void __Pyx_call_destructor(T* x) {
 #define __PYX_HAVE__pyVideoInput
 #define __PYX_HAVE_API__pyVideoInput
 #include "wchar.h"
-#include "Windows.h"
-#include <vector>
+#include <videoInput.h>
 #include "ios"
 #include "new"
 #include "stdexcept"
 #include "typeinfo"
-#include <videoInput/videoInput.h>
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -433,12 +431,11 @@ struct __pyx_obj_12pyVideoInput_VideoInput;
  * cimport videoInput as vid
  * 
  * cdef class VideoInput:             # <<<<<<<<<<<<<<
- *     cdef vid.videoInput *vi
+ *     #cdef vid.videoInput vi
  * 
  */
 struct __pyx_obj_12pyVideoInput_VideoInput {
   PyObject_HEAD
-  videoInput *vi;
 };
 
 #ifndef CYTHON_REFNANNY
@@ -540,6 +537,18 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg
 #define __Pyx_PyObject_Call(func, arg, kw) PyObject_Call(func, arg, kw)
 #endif
 
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject *arg);
+#endif
+
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallOneArg(PyObject *func, PyObject *arg);
+
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func);
+#else
+#define __Pyx_PyObject_CallNoArg(func) __Pyx_PyObject_Call(func, __pyx_empty_tuple, NULL)
+#endif
+
 typedef struct {
     int code_line;
     PyCodeObject* code_object;
@@ -576,8 +585,6 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
-/* Module declarations from 'libcpp.vector' */
-
 /* Module declarations from 'videoInput' */
 
 /* Module declarations from 'pyVideoInput' */
@@ -586,20 +593,16 @@ static PyTypeObject *__pyx_ptype_12pyVideoInput_VideoInput = 0;
 int __pyx_module_is_main_pyVideoInput = 0;
 
 /* Implementation of 'pyVideoInput' */
-static PyObject *__pyx_pf_12pyVideoInput_10VideoInput_getDeviceList(struct __pyx_obj_12pyVideoInput_VideoInput *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_12pyVideoInput_10VideoInput_2test(CYTHON_UNUSED struct __pyx_obj_12pyVideoInput_VideoInput *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_12pyVideoInput_10VideoInput_test(CYTHON_UNUSED struct __pyx_obj_12pyVideoInput_VideoInput *__pyx_v_self); /* proto */
 static PyObject *__pyx_tp_new_12pyVideoInput_VideoInput(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static char __pyx_k_cap[] = "cap";
 static char __pyx_k_end[] = "end";
-static char __pyx_k_vid[] = "vid";
 static char __pyx_k_file[] = "file";
 static char __pyx_k_main[] = "__main__";
 static char __pyx_k_name[] = "__name__";
 static char __pyx_k_test[] = "test";
 static char __pyx_k_print[] = "print";
 static char __pyx_k_test_2[] = "__test__";
-static char __pyx_k_VI_VERSION[] = "VI_VERSION";
-static PyObject *__pyx_n_s_VI_VERSION;
 static PyObject *__pyx_n_s_cap;
 static PyObject *__pyx_n_s_end;
 static PyObject *__pyx_n_s_file;
@@ -608,57 +611,6 @@ static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_n_s_print;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_test_2;
-static PyObject *__pyx_n_s_vid;
-
-/* "pyVideoInput.pyx":10
- *     #    #self.vi = new vid.videoInput()
- * 
- *     def getDeviceList(self):             # <<<<<<<<<<<<<<
- *         self.vi.listDevices()
- * 
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_12pyVideoInput_10VideoInput_1getDeviceList(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_12pyVideoInput_10VideoInput_1getDeviceList(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("getDeviceList (wrapper)", 0);
-  __pyx_r = __pyx_pf_12pyVideoInput_10VideoInput_getDeviceList(((struct __pyx_obj_12pyVideoInput_VideoInput *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_12pyVideoInput_10VideoInput_getDeviceList(struct __pyx_obj_12pyVideoInput_VideoInput *__pyx_v_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("getDeviceList", 0);
-
-  /* "pyVideoInput.pyx":11
- * 
- *     def getDeviceList(self):
- *         self.vi.listDevices()             # <<<<<<<<<<<<<<
- * 
- *     #def VideoInput(self):
- */
-  __pyx_v_self->vi->listDevices(NULL);
-
-  /* "pyVideoInput.pyx":10
- *     #    #self.vi = new vid.videoInput()
- * 
- *     def getDeviceList(self):             # <<<<<<<<<<<<<<
- *         self.vi.listDevices()
- * 
- */
-
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
 
 /* "pyVideoInput.pyx":16
  *     #    self.vi = new vid.videoInput()
@@ -669,19 +621,19 @@ static PyObject *__pyx_pf_12pyVideoInput_10VideoInput_getDeviceList(struct __pyx
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12pyVideoInput_10VideoInput_3test(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_12pyVideoInput_10VideoInput_3test(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_12pyVideoInput_10VideoInput_1test(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_12pyVideoInput_10VideoInput_1test(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("test (wrapper)", 0);
-  __pyx_r = __pyx_pf_12pyVideoInput_10VideoInput_2test(((struct __pyx_obj_12pyVideoInput_VideoInput *)__pyx_v_self));
+  __pyx_r = __pyx_pf_12pyVideoInput_10VideoInput_test(((struct __pyx_obj_12pyVideoInput_VideoInput *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12pyVideoInput_10VideoInput_2test(CYTHON_UNUSED struct __pyx_obj_12pyVideoInput_VideoInput *__pyx_v_self) {
+static PyObject *__pyx_pf_12pyVideoInput_10VideoInput_test(CYTHON_UNUSED struct __pyx_obj_12pyVideoInput_VideoInput *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -739,8 +691,7 @@ static void __pyx_tp_dealloc_12pyVideoInput_VideoInput(PyObject *o) {
 }
 
 static PyMethodDef __pyx_methods_12pyVideoInput_VideoInput[] = {
-  {"getDeviceList", (PyCFunction)__pyx_pw_12pyVideoInput_10VideoInput_1getDeviceList, METH_NOARGS, 0},
-  {"test", (PyCFunction)__pyx_pw_12pyVideoInput_10VideoInput_3test, METH_NOARGS, 0},
+  {"test", (PyCFunction)__pyx_pw_12pyVideoInput_10VideoInput_1test, METH_NOARGS, 0},
   {0, 0, 0, 0}
 };
 
@@ -824,7 +775,6 @@ static struct PyModuleDef __pyx_moduledef = {
 #endif
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
-  {&__pyx_n_s_VI_VERSION, __pyx_k_VI_VERSION, sizeof(__pyx_k_VI_VERSION), 0, 0, 1, 1},
   {&__pyx_n_s_cap, __pyx_k_cap, sizeof(__pyx_k_cap), 0, 0, 1, 1},
   {&__pyx_n_s_end, __pyx_k_end, sizeof(__pyx_k_end), 0, 0, 1, 1},
   {&__pyx_n_s_file, __pyx_k_file, sizeof(__pyx_k_file), 0, 0, 1, 1},
@@ -833,7 +783,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_print, __pyx_k_print, sizeof(__pyx_k_print), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_n_s_test_2, __pyx_k_test_2, sizeof(__pyx_k_test_2), 0, 0, 1, 1},
-  {&__pyx_n_s_vid, __pyx_k_vid, sizeof(__pyx_k_vid), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
@@ -865,6 +814,7 @@ PyMODINIT_FUNC PyInit_pyVideoInput(void)
   PyObject *__pyx_t_1 = NULL;
   int __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -950,7 +900,7 @@ PyMODINIT_FUNC PyInit_pyVideoInput(void)
  * 
  * if __name__ == '__main__':             # <<<<<<<<<<<<<<
  *     cap = VideoInput()
- *     print vid.VI_VERSION
+ *     print cap.test()
  */
   __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_name); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 20; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
@@ -962,8 +912,7 @@ PyMODINIT_FUNC PyInit_pyVideoInput(void)
  * 
  * if __name__ == '__main__':
  *     cap = VideoInput()             # <<<<<<<<<<<<<<
- *     print vid.VI_VERSION
- *     #print cap.test()
+ *     print cap.test()
  */
     __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_12pyVideoInput_VideoInput)), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 21; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
@@ -973,16 +922,33 @@ PyMODINIT_FUNC PyInit_pyVideoInput(void)
     /* "pyVideoInput.pyx":22
  * if __name__ == '__main__':
  *     cap = VideoInput()
- *     print vid.VI_VERSION             # <<<<<<<<<<<<<<
- *     #print cap.test()
+ *     print cap.test()             # <<<<<<<<<<<<<<
  */
-    __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_vid); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 22; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VI_VERSION); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 22; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_cap); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 22; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (__Pyx_PrintOne(0, __pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 22; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_test); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 22; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_3 = NULL;
+    if (CYTHON_COMPILING_IN_CPYTHON && unlikely(PyMethod_Check(__pyx_t_4))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
+      if (likely(__pyx_t_3)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+        __Pyx_INCREF(__pyx_t_3);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_4, function);
+      }
+    }
+    if (__pyx_t_3) {
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 22; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    } else {
+      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 22; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    }
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (__Pyx_PrintOne(0, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 22; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     goto __pyx_L2;
   }
   __pyx_L2:;
@@ -992,10 +958,10 @@ PyMODINIT_FUNC PyInit_pyVideoInput(void)
  * 
  * cdef class VideoInput:
  */
-  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test_2, __pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test_2, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /*--- Wrapped vars code ---*/
 
@@ -1003,6 +969,7 @@ PyMODINIT_FUNC PyInit_pyVideoInput(void)
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
   if (__pyx_m) {
     if (__pyx_d) {
       __Pyx_AddTraceback("init pyVideoInput", __pyx_clineno, __pyx_lineno, __pyx_filename);
@@ -1203,6 +1170,70 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg
             "NULL result without error in PyObject_Call");
     }
     return result;
+}
+#endif
+
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject *arg) {
+    PyObject *self, *result;
+    PyCFunction cfunc;
+    cfunc = PyCFunction_GET_FUNCTION(func);
+    self = PyCFunction_GET_SELF(func);
+    if (unlikely(Py_EnterRecursiveCall((char*)" while calling a Python object")))
+        return NULL;
+    result = cfunc(self, arg);
+    Py_LeaveRecursiveCall();
+    if (unlikely(!result) && unlikely(!PyErr_Occurred())) {
+        PyErr_SetString(
+            PyExc_SystemError,
+            "NULL result without error in PyObject_Call");
+    }
+    return result;
+}
+#endif
+
+#if CYTHON_COMPILING_IN_CPYTHON
+static PyObject* __Pyx__PyObject_CallOneArg(PyObject *func, PyObject *arg) {
+    PyObject *result;
+    PyObject *args = PyTuple_New(1);
+    if (unlikely(!args)) return NULL;
+    Py_INCREF(arg);
+    PyTuple_SET_ITEM(args, 0, arg);
+    result = __Pyx_PyObject_Call(func, args, NULL);
+    Py_DECREF(args);
+    return result;
+}
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallOneArg(PyObject *func, PyObject *arg) {
+#ifdef __Pyx_CyFunction_USED
+    if (likely(PyCFunction_Check(func) || PyObject_TypeCheck(func, __pyx_CyFunctionType))) {
+#else
+    if (likely(PyCFunction_Check(func))) {
+#endif
+        if (likely(PyCFunction_GET_FLAGS(func) & METH_O)) {
+            return __Pyx_PyObject_CallMethO(func, arg);
+        }
+    }
+    return __Pyx__PyObject_CallOneArg(func, arg);
+}
+#else
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallOneArg(PyObject *func, PyObject *arg) {
+    PyObject* args = PyTuple_Pack(1, arg);
+    return (likely(args)) ? __Pyx_PyObject_Call(func, args, NULL) : NULL;
+}
+#endif
+
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func) {
+#ifdef __Pyx_CyFunction_USED
+    if (likely(PyCFunction_Check(func) || PyObject_TypeCheck(func, __pyx_CyFunctionType))) {
+#else
+    if (likely(PyCFunction_Check(func))) {
+#endif
+        if (likely(PyCFunction_GET_FLAGS(func) & METH_NOARGS)) {
+            return __Pyx_PyObject_CallMethO(func, NULL);
+        }
+    }
+    return __Pyx_PyObject_Call(func, __pyx_empty_tuple, NULL);
 }
 #endif
 
