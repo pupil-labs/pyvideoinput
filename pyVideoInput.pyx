@@ -1,22 +1,21 @@
-cimport videoInput as vid
+cimport videoInput
 
 cdef class VideoInput:
-    #cdef vid.videoInput vi
+    cdef videoInput.videoInput *thisptr
     
-    #def test(self):
-    #    return self.vi.listDevices()
-    #    #self.vi = new vid.videoInput()
-    
-    #def getDeviceList(self):
-    #   pass
+    def __cinit__(self):
+        self.thisptr[0] = videoInput.getInstance()
         
-    #def VideoInput(self):
-    #    self.vi = new vid.videoInput()
-    
+    def __dealloc__(self):
+        del self.thisptr
+        
+    def fun(self):
+        #&vid.videoInput.getInstance()
+        print "test1"
+
     def test(self):
-        print "test" 
+        print "test2" 
 
 
-if __name__ == '__main__':
-    cap = VideoInput()
-    print cap.test()
+cap = VideoInput()
+print cap.test()
