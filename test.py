@@ -1,3 +1,0 @@
-from pyVideoInput import *
-
-test()
