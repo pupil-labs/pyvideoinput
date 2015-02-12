@@ -117,4 +117,9 @@
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="videoInput.i">
+      <Filter>other</Filter>
+    </None>
+  </ItemGroup>
 </Project>

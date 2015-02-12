@@ -90,6 +90,409 @@ except AttributeError:
     _newclass = 0
 
 
+class SwigPyIterator(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SwigPyIterator, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, SwigPyIterator, name)
+
+    def __init__(self, *args, **kwargs):
+        raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    __swig_destroy__ = _videoInput.delete_SwigPyIterator
+    __del__ = lambda self: None
+
+    def value(self):
+        return _videoInput.SwigPyIterator_value(self)
+
+    def incr(self, n=1):
+        return _videoInput.SwigPyIterator_incr(self, n)
+
+    def decr(self, n=1):
+        return _videoInput.SwigPyIterator_decr(self, n)
+
+    def distance(self, x):
+        return _videoInput.SwigPyIterator_distance(self, x)
+
+    def equal(self, x):
+        return _videoInput.SwigPyIterator_equal(self, x)
+
+    def copy(self):
+        return _videoInput.SwigPyIterator_copy(self)
+
+    def next(self):
+        return _videoInput.SwigPyIterator_next(self)
+
+    def __next__(self):
+        return _videoInput.SwigPyIterator___next__(self)
+
+    def previous(self):
+        return _videoInput.SwigPyIterator_previous(self)
+
+    def advance(self, n):
+        return _videoInput.SwigPyIterator_advance(self, n)
+
+    def __eq__(self, x):
+        return _videoInput.SwigPyIterator___eq__(self, x)
+
+    def __ne__(self, x):
+        return _videoInput.SwigPyIterator___ne__(self, x)
+
+    def __iadd__(self, n):
+        return _videoInput.SwigPyIterator___iadd__(self, n)
+
+    def __isub__(self, n):
+        return _videoInput.SwigPyIterator___isub__(self, n)
+
+    def __add__(self, n):
+        return _videoInput.SwigPyIterator___add__(self, n)
+
+    def __sub__(self, *args):
+        return _videoInput.SwigPyIterator___sub__(self, *args)
+    def __iter__(self):
+        return self
+SwigPyIterator_swigregister = _videoInput.SwigPyIterator_swigregister
+SwigPyIterator_swigregister(SwigPyIterator)
+
+class DeviceList(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DeviceList, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, DeviceList, name)
+    __repr__ = _swig_repr
+
+    def iterator(self):
+        return _videoInput.DeviceList_iterator(self)
+    def __iter__(self):
+        return self.iterator()
+
+    def __nonzero__(self):
+        return _videoInput.DeviceList___nonzero__(self)
+
+    def __bool__(self):
+        return _videoInput.DeviceList___bool__(self)
+
+    def __len__(self):
+        return _videoInput.DeviceList___len__(self)
+
+    def pop(self):
+        return _videoInput.DeviceList_pop(self)
+
+    def __getslice__(self, i, j):
+        return _videoInput.DeviceList___getslice__(self, i, j)
+
+    def __setslice__(self, *args):
+        return _videoInput.DeviceList___setslice__(self, *args)
+
+    def __delslice__(self, i, j):
+        return _videoInput.DeviceList___delslice__(self, i, j)
+
+    def __delitem__(self, *args):
+        return _videoInput.DeviceList___delitem__(self, *args)
+
+    def __getitem__(self, *args):
+        return _videoInput.DeviceList___getitem__(self, *args)
+
+    def __setitem__(self, *args):
+        return _videoInput.DeviceList___setitem__(self, *args)
+
+    def append(self, x):
+        return _videoInput.DeviceList_append(self, x)
+
+    def empty(self):
+        return _videoInput.DeviceList_empty(self)
+
+    def size(self):
+        return _videoInput.DeviceList_size(self)
+
+    def clear(self):
+        return _videoInput.DeviceList_clear(self)
+
+    def swap(self, v):
+        return _videoInput.DeviceList_swap(self, v)
+
+    def get_allocator(self):
+        return _videoInput.DeviceList_get_allocator(self)
+
+    def begin(self):
+        return _videoInput.DeviceList_begin(self)
+
+    def end(self):
+        return _videoInput.DeviceList_end(self)
+
+    def rbegin(self):
+        return _videoInput.DeviceList_rbegin(self)
+
+    def rend(self):
+        return _videoInput.DeviceList_rend(self)
+
+    def pop_back(self):
+        return _videoInput.DeviceList_pop_back(self)
+
+    def erase(self, *args):
+        return _videoInput.DeviceList_erase(self, *args)
+
+    def __init__(self, *args):
+        this = _videoInput.new_DeviceList(*args)
+        try:
+            self.this.append(this)
+        except:
+            self.this = this
+
+    def push_back(self, x):
+        return _videoInput.DeviceList_push_back(self, x)
+
+    def front(self):
+        return _videoInput.DeviceList_front(self)
+
+    def back(self):
+        return _videoInput.DeviceList_back(self)
+
+    def assign(self, n, x):
+        return _videoInput.DeviceList_assign(self, n, x)
+
+    def resize(self, *args):
+        return _videoInput.DeviceList_resize(self, *args)
+
+    def insert(self, *args):
+        return _videoInput.DeviceList_insert(self, *args)
+
+    def reserve(self, n):
+        return _videoInput.DeviceList_reserve(self, n)
+
+    def capacity(self):
+        return _videoInput.DeviceList_capacity(self)
+    __swig_destroy__ = _videoInput.delete_DeviceList
+    __del__ = lambda self: None
+DeviceList_swigregister = _videoInput.DeviceList_swigregister
+DeviceList_swigregister(DeviceList)
+
+class StreamList(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, StreamList, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, StreamList, name)
+    __repr__ = _swig_repr
+
+    def iterator(self):
+        return _videoInput.StreamList_iterator(self)
+    def __iter__(self):
+        return self.iterator()
+
+    def __nonzero__(self):
+        return _videoInput.StreamList___nonzero__(self)
+
+    def __bool__(self):
+        return _videoInput.StreamList___bool__(self)
+
+    def __len__(self):
+        return _videoInput.StreamList___len__(self)
+
+    def pop(self):
+        return _videoInput.StreamList_pop(self)
+
+    def __getslice__(self, i, j):
+        return _videoInput.StreamList___getslice__(self, i, j)
+
+    def __setslice__(self, *args):
+        return _videoInput.StreamList___setslice__(self, *args)
+
+    def __delslice__(self, i, j):
+        return _videoInput.StreamList___delslice__(self, i, j)
+
+    def __delitem__(self, *args):
+        return _videoInput.StreamList___delitem__(self, *args)
+
+    def __getitem__(self, *args):
+        return _videoInput.StreamList___getitem__(self, *args)
+
+    def __setitem__(self, *args):
+        return _videoInput.StreamList___setitem__(self, *args)
+
+    def append(self, x):
+        return _videoInput.StreamList_append(self, x)
+
+    def empty(self):
+        return _videoInput.StreamList_empty(self)
+
+    def size(self):
+        return _videoInput.StreamList_size(self)
+
+    def clear(self):
+        return _videoInput.StreamList_clear(self)
+
+    def swap(self, v):
+        return _videoInput.StreamList_swap(self, v)
+
+    def get_allocator(self):
+        return _videoInput.StreamList_get_allocator(self)
+
+    def begin(self):
+        return _videoInput.StreamList_begin(self)
+
+    def end(self):
+        return _videoInput.StreamList_end(self)
+
+    def rbegin(self):
+        return _videoInput.StreamList_rbegin(self)
+
+    def rend(self):
+        return _videoInput.StreamList_rend(self)
+
+    def pop_back(self):
+        return _videoInput.StreamList_pop_back(self)
+
+    def erase(self, *args):
+        return _videoInput.StreamList_erase(self, *args)
+
+    def __init__(self, *args):
+        this = _videoInput.new_StreamList(*args)
+        try:
+            self.this.append(this)
+        except:
+            self.this = this
+
+    def push_back(self, x):
+        return _videoInput.StreamList_push_back(self, x)
+
+    def front(self):
+        return _videoInput.StreamList_front(self)
+
+    def back(self):
+        return _videoInput.StreamList_back(self)
+
+    def assign(self, n, x):
+        return _videoInput.StreamList_assign(self, n, x)
+
+    def resize(self, *args):
+        return _videoInput.StreamList_resize(self, *args)
+
+    def insert(self, *args):
+        return _videoInput.StreamList_insert(self, *args)
+
+    def reserve(self, n):
+        return _videoInput.StreamList_reserve(self, n)
+
+    def capacity(self):
+        return _videoInput.StreamList_capacity(self)
+    __swig_destroy__ = _videoInput.delete_StreamList
+    __del__ = lambda self: None
+StreamList_swigregister = _videoInput.StreamList_swigregister
+StreamList_swigregister(StreamList)
+
+class MediaTypeList(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MediaTypeList, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, MediaTypeList, name)
+    __repr__ = _swig_repr
+
+    def iterator(self):
+        return _videoInput.MediaTypeList_iterator(self)
+    def __iter__(self):
+        return self.iterator()
+
+    def __nonzero__(self):
+        return _videoInput.MediaTypeList___nonzero__(self)
+
+    def __bool__(self):
+        return _videoInput.MediaTypeList___bool__(self)
+
+    def __len__(self):
+        return _videoInput.MediaTypeList___len__(self)
+
+    def pop(self):
+        return _videoInput.MediaTypeList_pop(self)
+
+    def __getslice__(self, i, j):
+        return _videoInput.MediaTypeList___getslice__(self, i, j)
+
+    def __setslice__(self, *args):
+        return _videoInput.MediaTypeList___setslice__(self, *args)
+
+    def __delslice__(self, i, j):
+        return _videoInput.MediaTypeList___delslice__(self, i, j)
+
+    def __delitem__(self, *args):
+        return _videoInput.MediaTypeList___delitem__(self, *args)
+
+    def __getitem__(self, *args):
+        return _videoInput.MediaTypeList___getitem__(self, *args)
+
+    def __setitem__(self, *args):
+        return _videoInput.MediaTypeList___setitem__(self, *args)
+
+    def append(self, x):
+        return _videoInput.MediaTypeList_append(self, x)
+
+    def empty(self):
+        return _videoInput.MediaTypeList_empty(self)
+
+    def size(self):
+        return _videoInput.MediaTypeList_size(self)
+
+    def clear(self):
+        return _videoInput.MediaTypeList_clear(self)
+
+    def swap(self, v):
+        return _videoInput.MediaTypeList_swap(self, v)
+
+    def get_allocator(self):
+        return _videoInput.MediaTypeList_get_allocator(self)
+
+    def begin(self):
+        return _videoInput.MediaTypeList_begin(self)
+
+    def end(self):
+        return _videoInput.MediaTypeList_end(self)
+
+    def rbegin(self):
+        return _videoInput.MediaTypeList_rbegin(self)
+
+    def rend(self):
+        return _videoInput.MediaTypeList_rend(self)
+
+    def pop_back(self):
+        return _videoInput.MediaTypeList_pop_back(self)
+
+    def erase(self, *args):
+        return _videoInput.MediaTypeList_erase(self, *args)
+
+    def __init__(self, *args):
+        this = _videoInput.new_MediaTypeList(*args)
+        try:
+            self.this.append(this)
+        except:
+            self.this = this
+
+    def push_back(self, x):
+        return _videoInput.MediaTypeList_push_back(self, x)
+
+    def front(self):
+        return _videoInput.MediaTypeList_front(self)
+
+    def back(self):
+        return _videoInput.MediaTypeList_back(self)
+
+    def assign(self, n, x):
+        return _videoInput.MediaTypeList_assign(self, n, x)
+
+    def resize(self, *args):
+        return _videoInput.MediaTypeList_resize(self, *args)
+
+    def insert(self, *args):
+        return _videoInput.MediaTypeList_insert(self, *args)
+
+    def reserve(self, n):
+        return _videoInput.MediaTypeList_reserve(self, n)
+
+    def capacity(self):
+        return _videoInput.MediaTypeList_capacity(self)
+    __swig_destroy__ = _videoInput.delete_MediaTypeList
+    __del__ = lambda self: None
+MediaTypeList_swigregister = _videoInput.MediaTypeList_swigregister
+MediaTypeList_swigregister(MediaTypeList)
+
 class MediaType(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, MediaType, name, value)
@@ -532,6 +935,9 @@ class ReadSetting(_object):
     __swig_getmethods__["pPixels"] = _videoInput.ReadSetting_pPixels_get
     if _newclass:
         pPixels = _swig_property(_videoInput.ReadSetting_pPixels_get, _videoInput.ReadSetting_pPixels_set)
+
+    def setNumpyArray(self, ndarray):
+        return _videoInput.ReadSetting_setNumpyArray(self, ndarray)
 
     def __init__(self):
         this = _videoInput.new_ReadSetting()

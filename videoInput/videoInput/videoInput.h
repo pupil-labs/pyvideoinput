@@ -180,6 +180,8 @@ struct ReadSetting
 	std::wstring symbolicLink;
 
 	unsigned char *pPixels;
+
+	void setNumpyArray(unsigned char* ndarray, int dim);
 };
 
 // Structurre for controling parameters of video device

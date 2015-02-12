@@ -40,7 +40,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_X86_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(PYTHON_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(PYTHON_INCLUDE);$(PYTHON_INCLUDE)/../Lib/site-packages/numpy/core/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -105,6 +105,9 @@
     <ClCompile Include="VideoCaptureSink.cpp" />
     <ClCompile Include="videoInput.cpp" />
     <ClCompile Include="videoInput_wrap.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="videoInput.i" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

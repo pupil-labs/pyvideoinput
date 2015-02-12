@@ -3,6 +3,10 @@
 #include "MediaFoundation.h"
 #include "VideoCaptureDeviceManager.h"
 
+void ReadSetting::setNumpyArray(unsigned char* ndarray, int dim){
+	this->pPixels = ndarray;
+}
+
 Parametr::Parametr()
 {
 	CurrentValue = 0;
