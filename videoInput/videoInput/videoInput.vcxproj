@@ -61,7 +61,7 @@
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
     <PreBuildEvent>
-      <Command>swig -python -c++ -outdir $(SolutionDir)$(Platform)\$(Configuration)\ $(ProjectName).i</Command>
+      <Command>swig -python -c++ -outdir $(SolutionDir).. $(ProjectName).i</Command>
     </PreBuildEvent>
     <PreBuildEvent>
       <Message>Invokes the swig code generation</Message>
