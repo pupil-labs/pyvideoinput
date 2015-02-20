@@ -493,6 +493,9 @@ class MediaTypeList(_object):
 MediaTypeList_swigregister = _videoInput.MediaTypeList_swigregister
 MediaTypeList_swigregister(MediaTypeList)
 
+
+_videoInput.VERSION_swigconstant(_videoInput)
+VERSION = _videoInput.VERSION
 class MediaType(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, MediaType, name, value)

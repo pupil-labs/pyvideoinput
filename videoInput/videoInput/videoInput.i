@@ -22,5 +22,7 @@ namespace std {
 	%template(MediaTypeList) vector<MediaType>;
 }
 
+%constant double VERSION = 0.1;
+
 /* Parse the header file to generate wrappers */
 %include "videoInput.h"

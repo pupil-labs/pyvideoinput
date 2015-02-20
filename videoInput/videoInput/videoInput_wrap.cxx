@@ -4912,6 +4912,9 @@ SWIGINTERN std::vector< MediaType >::iterator std_vector_Sl_MediaType_Sg__erase_
 SWIGINTERN std::vector< MediaType >::iterator std_vector_Sl_MediaType_Sg__insert__SWIG_0(std::vector< MediaType > *self,std::vector< MediaType >::iterator pos,std::vector< MediaType >::value_type const &x){ return self->insert(pos, x); }
 SWIGINTERN void std_vector_Sl_MediaType_Sg__insert__SWIG_1(std::vector< MediaType > *self,std::vector< MediaType >::iterator pos,std::vector< MediaType >::size_type n,std::vector< MediaType >::value_type const &x){ self->insert(pos, n, x); }
 
+  #define SWIG_From_double   PyFloat_FromDouble 
+
+
 #include <limits.h>
 #if !defined(SWIG_NO_LLONG_MAX)
 # if !defined(LLONG_MAX) && defined(__GNUC__) && defined (__LONG_LONG_MAX__)
@@ -5095,9 +5098,6 @@ SWIG_AsVal_float (PyObject * obj, float *val)
   }  
   return res;
 }
-
-
-  #define SWIG_From_double   PyFloat_FromDouble 
 
 
 SWIGINTERNINLINE PyObject *
@@ -12123,6 +12123,17 @@ SWIGINTERN PyObject *MediaTypeList_swigregister(PyObject *SWIGUNUSEDPARM(self), 
   return SWIG_Py_Void();
 }
 
+SWIGINTERN PyObject *VERSION_swigconstant(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *module;
+  PyObject *d;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigconstant", &module)) return NULL;
+  d = PyModule_GetDict(module);
+  if (!d) return NULL;
+  SWIG_Python_SetConstant(d, "VERSION",SWIG_From_double(static_cast< double >(0.1)));
+  return SWIG_Py_Void();
+}
+
+
 SWIGINTERN PyObject *_wrap_MediaType_MF_MT_FRAME_SIZE_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   MediaType *arg1 = (MediaType *) 0 ;
@@ -16384,6 +16395,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"MediaTypeList_capacity", _wrap_MediaTypeList_capacity, METH_VARARGS, NULL},
 	 { (char *)"delete_MediaTypeList", _wrap_delete_MediaTypeList, METH_VARARGS, NULL},
 	 { (char *)"MediaTypeList_swigregister", MediaTypeList_swigregister, METH_VARARGS, NULL},
+	 { (char *)"VERSION_swigconstant", VERSION_swigconstant, METH_VARARGS, NULL},
 	 { (char *)"MediaType_MF_MT_FRAME_SIZE_set", _wrap_MediaType_MF_MT_FRAME_SIZE_set, METH_VARARGS, NULL},
 	 { (char *)"MediaType_MF_MT_FRAME_SIZE_get", _wrap_MediaType_MF_MT_FRAME_SIZE_get, METH_VARARGS, NULL},
 	 { (char *)"MediaType_height_set", _wrap_MediaType_height_set, METH_VARARGS, NULL},

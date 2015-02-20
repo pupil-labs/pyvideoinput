@@ -1,6 +1,8 @@
 import videoInput as vi
 import numpy as np
 
+print vi.VERSION
+
 print "LOADED VIDEOINPUT LIB"
 
 vin = vi.videoInput_getInstance()
@@ -19,14 +21,14 @@ print "LOADED CAPTURE DEVICES"
 deviceSettings = vi.DeviceSettings()
 deviceSettings.symbolicLink = dev.symbolicName
 deviceSettings.indexStream = 0
-deviceSettings.indexMediaType = 2
+deviceSettings.indexMediaType = 195
 captureSettings = vi.CaptureSettings()
 captureSettings.readMode = vi.ReadMode.SYNC
 captureSettings.videoFormat = vi.CaptureVideoFormat.RGB24
 
 stream = dev.listStream[0]
 assert isinstance(stream, vi.Stream)
-mediaType = stream.listMediaType[2]
+mediaType = stream.listMediaType[195]
 for mt in stream.listMediaType:
     print mt.width, mt.height, mt.MF_MT_FRAME_RATE
 
