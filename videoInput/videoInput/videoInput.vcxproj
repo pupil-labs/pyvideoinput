@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{61EA9E2E-EF15-44DA-BA97-397CC2BACFA9}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>videoInput</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetExt>.pyd</TargetExt>
+    <TargetName>_$(ProjectName)</TargetName>
+    <ExtensionsToDeleteOnClean>*.cdf;*.cache;*.obj;*.ilk;*.resources;*.tlb;*.tli;*.tlh;*.tmp;*.rsp;*.pgc;*.pgd;*.meta;*.tlog;*.manifest;*.res;*.pch;*.exp;*.idb;*.rep;*.xdc;*.pdb;*_manifest.rc;*.bsc;*.sbr;*.xml;*.metagen;*.bi;*.pyd;*.pyc</ExtensionsToDeleteOnClean>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_X86_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(PYTHON_INCLUDE);$(PYTHON_INCLUDE)/../Lib/site-packages/numpy/core/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalDependencies>$(PYTHON_LIB);kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <OutputFile>_videoInput.pyd</OutputFile>
+      <AdditionalLibraryDirectories>$(PYTHON_LIB)</AdditionalLibraryDirectories>
+    </Lib>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <PreBuildEvent>
+      <Command>swig -python -c++ -outdir $(SolutionDir).. $(ProjectName).i</Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>Invokes the swig code generation</Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="BoxMode.h" />
+    <ClInclude Include="ComMassivPtr.h" />
+    <ClInclude Include="ComPtrCustom.h" />
+    <ClInclude Include="DebugPrintOut.h" />
+    <ClInclude Include="FormatReader.h" />
+    <ClInclude Include="IRead.h" />
+    <ClInclude Include="IReadWriteBuffer.h" />
+    <ClInclude Include="IWrite.h" />
+    <ClInclude Include="MediaFoundation.h" />
+    <ClInclude Include="MF.h" />
+    <ClInclude Include="ReadWriteBufferFactory.h" />
+    <ClInclude Include="ReadWriteBufferRegularAsync.h" />
+    <ClInclude Include="ReadWriteBufferRegularSync.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="VideoCaptureDevice.h" />
+    <ClInclude Include="VideoCaptureDeviceManager.h" />
+    <ClInclude Include="VideoCaptureSession.h" />
+    <ClInclude Include="VideoCaptureSink.h" />
+    <ClInclude Include="videoInput.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DebugPrintOut.cpp" />
+    <ClCompile Include="FormatReader.cpp" />
+    <ClCompile Include="MediaFoundation.cpp" />
+    <ClCompile Include="ReadWriteBufferFactory.cpp" />
+    <ClCompile Include="ReadWriteBufferRegularAsync.cpp" />
+    <ClCompile Include="ReadWriteBufferRegularSync.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="VideoCaptureDevice.cpp" />
+    <ClCompile Include="VideoCaptureDeviceManager.cpp" />
+    <ClCompile Include="VideoCaptureSession.cpp" />
+    <ClCompile Include="VideoCaptureSink.cpp" />
+    <ClCompile Include="videoInput.cpp" />
+    <ClCompile Include="videoInput_wrap.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="videoInput.i" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
