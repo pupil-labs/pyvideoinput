@@ -17,6 +17,6 @@ http://www.codeproject.com/Articles/776058/Capturing-Live-video-from-Web-camera-
 
 ## Build Library
 
-* Setup SWIG for Windows: http://www.swig.org/Doc3.0/SWIGDocumentation.html#Windows_installation
-* Open and build the VS solution
+* Setup environment variables for SWIG on Windows (3.2.1.4): http://www.swig.org/Doc3.0/SWIGDocumentation.html#Windows_installation
+* Open and build the VS solution (SWIG gets executed as pre-build event)
 * Finished.
