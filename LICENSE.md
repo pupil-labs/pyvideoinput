@@ -1,8 +1,5 @@
-The Code Project Open License (CPOL)
-====================================
-
 # The Code Project Open License (CPOL) 1.02
-
+====================================
 
 ## Preamble
 
