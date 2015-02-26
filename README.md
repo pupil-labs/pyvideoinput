@@ -4,7 +4,7 @@ pyvideoinput
 pyvideoinput is a wrapper of a x64 version of the C++ library for capturing video streams presented by Evgeny Pereguda on CodeProject:
 http://www.codeproject.com/Articles/776058/Capturing-Live-video-from-Web-camera-on-Windows-an
 
-## Instalation
+## Installation
 
     git clone http://github.com/pupil-labs/pyvideoinput
     open command line and navigate to local git folder
