@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 
-data = [('', ['videoInput/x64/Release/_videoInput.lib', 'videoInput/x64/Release/_videoInput.pyd'])]
+data = [('', ['videoInput/Release/_videoInput.lib', 'videoInput/Release/_videoInput.pyd'])]
 
 setup(name='pyvideoinput',
       version='0.1',
