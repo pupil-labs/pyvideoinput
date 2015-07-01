@@ -1,5 +1,5 @@
 from distutils.core import setup
-
+import setuptools
 
 data = [('', ['videoInput/x64/Release/_videoInput.lib', 'videoInput/x64/Release/_videoInput.pyd'])]
 
