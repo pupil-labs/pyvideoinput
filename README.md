@@ -1,7 +1,7 @@
 pyvideoinput
 ============
 
-pyvideoinput is a wrapper of a x64 version of the C++ library for capturing video streams presented by Evgeny Pereguda on CodeProject:
+pyvideoinput is a wrapper of the C++ library for capturing video streams presented by Evgeny Pereguda on CodeProject:
 http://www.codeproject.com/Articles/776058/Capturing-Live-video-from-Web-camera-on-Windows-an Repository: `ssh://git@git.codeproject.com/evgeny-pereguda/videoinput`
 
 
